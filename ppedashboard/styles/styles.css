@@ -1,0 +1,25 @@
+.stSection {
+  margin-bottom: 30px;
+  background-color: brown;
+}
+.stSubheader {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+#root
+  > div:nth-child(1)
+  > div
+  > div
+  > div
+  > section
+  > div.stSection
+  > div
+  > div
+  > div
+  > div
+  > div
+  > h2 {
+  color: white;
+}
