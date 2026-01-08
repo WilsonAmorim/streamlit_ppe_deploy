@@ -1,18 +1,29 @@
 import streamlit as st
 import pandas as pd
 
-@st.cache_data(ttl=3600)  # Guarda os dados por 1 hora (3600 segundos)
+@st.cache_data(ttl=3600)
 def carregar_dados_csv():
-    """Lê o arquivo físico e limpa os tipos de dados básicos."""
+    """Lê o arquivo físico tratando erros de linhas mal formadas e datas."""
     caminho = "data/Convenios.csv"
     
-    # Carregamento otimizado
-    df = pd.read_csv(caminho, low_memory=False)
+    # 1. on_bad_lines='skip' evita que o código trave, mas pula registros.
+    # Se possível, limpe o CSV original. Aqui garantimos a leitura do máximo possível.
+    df = pd.read_csv(
+        caminho, 
+        low_memory=False, 
+        on_bad_lines='skip', 
+        encoding='utf-8'
+    )
     
-    # Limpeza global de nomes de colunas
+    # Limpeza de nomes de colunas
     df.columns = [str(col).strip() for col in df.columns]
     
-    # Pré-limpeza de ConvenioNome para evitar erros de tipo (float vs str)
+    # TRATAMENTO DE DATAS (CRÍTICO PARA OS 346 REGISTROS)
+    # Removemos o 'dayfirst' fixo para o Pandas detectar o formato ISO do seu CSV
+    if 'DataAdmissao' in df.columns:
+        df['DataAdmissao'] = pd.to_datetime(df['DataAdmissao'], errors='coerce')
+
+    # Pré-limpeza de ConvenioNome
     if 'ConvenioNome' in df.columns:
         df['ConvenioNome'] = df['ConvenioNome'].fillna('NÃO INFORMADO').astype(str).str.strip()
         

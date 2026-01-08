@@ -14,7 +14,7 @@ def mostrar_grafico_contratacoes_ano(df):
     
     # 1. Tratamento das Datas (Importante para bater com o histórico)
     df_c = df.copy()
-    df_c['DataAdmissao'] = pd.to_datetime(df_c['DataAdmissao'], errors='coerce', dayfirst=True)
+    df_c['DataAdmissao'] = pd.to_datetime(df_c['DataAdmissao'], errors='coerce') # Deixe o pandas detectar
     df_c['ano'] = df_c['DataAdmissao'].dt.year
     
     # 2. Pegar os lotes únicos
