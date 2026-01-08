@@ -32,6 +32,3 @@ if not df_geral.empty:
 df_2025 = df_geral[(df_geral['ConvenioNome'] == "Fesfsus Lote 01") & 
                    (df_geral['DataAdmissao'].dt.year == 2025)]
 
-st.write(f"Total de registros de 2025 carregados no sistema: {len(df_2025)}")
-if len(df_2025) < 346:
-    st.warning("O arquivo CSV fornecido tem menos registros do que a API para 2025.")
