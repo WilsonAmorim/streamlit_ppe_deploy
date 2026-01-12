@@ -8,16 +8,9 @@ from charts.repasses import exibir_tabelas_por_lote_csv
 # st.set_page_config(page_title="Gestão de Repasses", layout="wide")
 
 # 2. Cabeçalho específico da página de Finanças
-col1, col2 = st.columns([1, 4])
+st.set_page_config(page_title="Painel de Beneficiários", layout="wide")
 
-with col1:
-    st.image("imagens/logo.png", width=80)
-
-with col2:
-    st.markdown(
-        "<h1 style='margin-top: 10px;'>PPE – BI Finanças</h1>",
-        unsafe_allow_html=True
-    )
+st.title("📊 Painel de Beneficiários")
 
 st.write("Acompanhamento detalhado dos repasses financeiros por lote e competência.")
 
