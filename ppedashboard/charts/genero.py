@@ -4,10 +4,10 @@ import pandas as pd
 
 def mostrar_grafico_sexo_lote(df):
     st.markdown("---")
-    st.subheader("📊 Distribuição Percentual de Sexo por Lote")
+    st.subheader("📊 Distribuição Percentual de Genero por Lote")
 
     if df.empty:
-        st.warning("Dados insuficientes para gerar o gráfico de sexo.")
+        st.warning("Dados insuficientes para gerar o gráfico de gênero.")
         return
 
     # 1. Agrupamento e Cálculo de Percentual

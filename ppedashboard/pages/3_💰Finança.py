@@ -1,28 +1,27 @@
 import streamlit as st
-from data.loader import carregar_repasses
-from charts.repasses import exibir_tabelas_por_lote
+import pandas as pd
+# Importamos a função que você já tem no arquivo de charts
+from charts.repasses import exibir_tabelas_por_lote_csv
 
-st.set_page_config(
-    page_title="Dashboard PPE",
-    layout="wide",
-    page_icon="📊"
-)
-col1, col2 = st.columns([1, 4])  # 1 parte imagem / 4 partes título
+# 1. Configuração da página (Deve ser o primeiro comando se for página única)
+# Se esta página for carregada via menu, verifique se o set_page_config já existe no main
+# st.set_page_config(page_title="Gestão de Repasses", layout="wide")
+
+# 2. Cabeçalho específico da página de Finanças
+col1, col2 = st.columns([1, 4])
 
 with col1:
     st.image("imagens/logo.png", width=80)
 
 with col2:
     st.markdown(
-        "<h1 style='margin-top: 10px;'>PPE – BI Finaças</h1>",
+        "<h1 style='margin-top: 10px;'>PPE – BI Finanças</h1>",
         unsafe_allow_html=True
     )
 
-# 1. Carrega os dados de repasse
-df_repasses = carregar_repasses()
+st.write("Acompanhamento detalhado dos repasses financeiros por lote e competência.")
 
-# 2. Exibe os expanders agrupados
-if not df_repasses.empty:
-    exibir_tabelas_por_lote(df_repasses)
-else:
-    st.info("ℹ️ Informações de repasses não encontradas para o Finanças.")
+# 3. Chamada da função que lê o seu CSV "Repasses.csv"
+# Esta função já contém o st.expander e as métricas que configuramos
+exibir_tabelas_por_lote_csv("Repasses.csv")
+
