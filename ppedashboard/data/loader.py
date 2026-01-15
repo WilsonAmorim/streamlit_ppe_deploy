@@ -60,3 +60,9 @@ def carregar_resumo_ativo():
     if 'Situacao' in df.columns:
         return df[df['Situacao'].isin(situacoes_ativas)].copy()
     return df.copy()
+
+def obter_total_ativos():
+    df_ativos = carregar_resumo_ativo()
+    if df_ativos.empty:
+        return 0
+    return int(df_ativos.shape[0]) # Retorna apenas a contagem de linhas

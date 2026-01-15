@@ -35,6 +35,7 @@ import streamlit as st
 from datetime import datetime
 import pandas as pd
 import os
+import data.loader as loader
 
 st.set_page_config(
     page_title="Dashboard PPE",
@@ -59,9 +60,18 @@ col_esq, col_meio, col_dir = st.columns([1, 2, 1])
 
 with col_meio:
     if os.path.exists(caminho_logo):
-        st.image(caminho_logo, width=400)
+        st.image(caminho_logo, width=200)
     else:
         st.error("Logo não encontrado.")
+a, b = st.columns(2)
+c, d = st.columns(2)
+
+a.metric("Total Geral Ativos", value=loader.obter_total_ativos(), border=True)
+b.metric("Wind", "4 mph", "2 mph", border=True)
+
+c.metric("Humidity", "77%", "5%", border=True)
+d.metric("Pressure", "30.34 inHg", "-2 inHg", border=True)
+
 st.sidebar.markdown("\n**SAEB/SGI/PPE**")
 
 # --- CONTEÚDO DA PÁGINA PRINCIPAL ---
