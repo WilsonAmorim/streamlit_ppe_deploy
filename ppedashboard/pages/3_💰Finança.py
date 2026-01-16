@@ -10,21 +10,27 @@ from charts.repasses import exibir_tabelas_por_lote_csv
 # 2. Cabeçalho específico da página de Finanças
 st.set_page_config(page_title="Painel de Beneficiários", layout="wide")
 
-# Injeção de CSS para esconder o menu, o cabeçalho e o rodapé
 st.markdown("""
     <style>
-    /* Esconde o menu (os três pontos no canto superior direito) */
-    #MainMenu {visibility: hidden;}
+    /* Esconde apenas os botões da direita (Share, Star, GitHub, etc.) */
+    [data-testid="stToolbar"] {
+        visibility: hidden;
+        display: none;
+    }
+
+    /* Esconde especificamente o menu de 3 pontos (MainMenu) */
+    #MainMenu {
+        visibility: hidden;
+    }
+
+    /* Opcional: Remove o espaço vazio que fica no topo */
+    header[data-testid="stHeader"] {
+        background: rgba(0,0,0,0);
+    }
     
-    /* Esconde o cabeçalho inteiro (onde ficam os botões Share, Star, etc.) */
-    header {visibility: hidden;}
-    
-    /* Esconde o rodapé "Made with Streamlit" (opcional) */
-    footer {visibility: hidden;}
-    
-    /* Ajusta o espaçamento superior após esconder o header */
-    .block-container {
-        padding-top: 2rem;
+    /* Garante que o botão da barra lateral continue visível e funcional */
+    [data-testid="stSidebarCollapsedControl"] {
+        visibility: visible;
     }
     </style>
 """, unsafe_allow_html=True)
