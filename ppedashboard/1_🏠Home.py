@@ -86,7 +86,7 @@ st.markdown(
     """
 )
 
-st.metric("Secretaria da Saúde Ativos",  "Contratações no Período de 2016 até Dezembro 2025", border=True)
+st.metric("Contratações no Período de 2016 até Dezembro 2025",  "Beneficários", border=True)
 
 a, b, c, d = st.columns(4)
 

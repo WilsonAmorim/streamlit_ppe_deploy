@@ -3,7 +3,7 @@ import plotly.express as px
 
 
 def mostrar_grafico_ativos(df):
-    st.markdown("### 🟢 Beneficiários na Ativa por Lote")
+    st.markdown("### 🟢 Beneficiários Ativos por Lote")
     
     if df.empty:
         st.warning("Nenhum dado encontrado no CSV.")
