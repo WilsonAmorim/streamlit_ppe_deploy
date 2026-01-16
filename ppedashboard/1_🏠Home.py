@@ -115,7 +115,7 @@ b3.metric("Contratados até Dezembro de 2025", value=formatar_inteiros(contratad
 c3.metric("Estágio e Aprendizagem no Espaço Público", value=formatar_inteiros(estagios)+" +", border=True)
 d3.metric("Ocupação Formal, Estágio e\n Aprendizagem no Espaço Privado", value=formatar_inteiros(privados), border=True)
 
-st.metric("",  "Repasses Financeiros por Lote e Competência.", border=True)
+st.metric("Repasses Financeiros por Lote e Competência",  "Repasses", border=True)
 a4, b4, c4, d4 = st.columns(4)
 
 RepassesFesfsus = 110210584.86
