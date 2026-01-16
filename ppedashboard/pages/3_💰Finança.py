@@ -10,6 +10,25 @@ from charts.repasses import exibir_tabelas_por_lote_csv
 # 2. Cabeçalho específico da página de Finanças
 st.set_page_config(page_title="Painel de Beneficiários", layout="wide")
 
+# Injeção de CSS para esconder o menu, o cabeçalho e o rodapé
+st.markdown("""
+    <style>
+    /* Esconde o menu (os três pontos no canto superior direito) */
+    #MainMenu {visibility: hidden;}
+    
+    /* Esconde o cabeçalho inteiro (onde ficam os botões Share, Star, etc.) */
+    header {visibility: hidden;}
+    
+    /* Esconde o rodapé "Made with Streamlit" (opcional) */
+    footer {visibility: hidden;}
+    
+    /* Ajusta o espaçamento superior após esconder o header */
+    .block-container {
+        padding-top: 2rem;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 st.title("📊 Painel de Beneficiários")
 
 st.write("Acompanhamento detalhado dos repasses financeiros por lote e competência.")

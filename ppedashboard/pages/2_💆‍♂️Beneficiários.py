@@ -8,6 +8,25 @@ from charts.genero import mostrar_grafico_sexo_lote
 # Configuração da página para aproveitar o espaço lateral
 st.set_page_config(page_title="Painel de Beneficiários", layout="wide")
 
+# Injeção de CSS para esconder o menu, o cabeçalho e o rodapé
+st.markdown("""
+    <style>
+    /* Esconde o menu (os três pontos no canto superior direito) */
+    #MainMenu {visibility: hidden;}
+    
+    /* Esconde o cabeçalho inteiro (onde ficam os botões Share, Star, etc.) */
+    header {visibility: hidden;}
+    
+    /* Esconde o rodapé "Made with Streamlit" (opcional) */
+    footer {visibility: hidden;}
+    
+    /* Ajusta o espaçamento superior após esconder o header */
+    .block-container {
+        padding-top: 2rem;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 st.title("📊 Painel de Beneficiários")
 
 # 1. CARREGAMENTO DOS DADOS
