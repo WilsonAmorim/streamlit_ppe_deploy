@@ -109,7 +109,7 @@ d2.metric("Afastados pelo INSS", value=formatar_inteiros(loader.carregar_afastad
 a3, b3, c3, d3 = st.columns(4)
 estagios = 6174
 privados = 1127
-geral = loader.obter_total_ativos() + loader.carregar_finalizados() + loader.carregar_afastados()
+geral = contratados + estagios + privados
 a3.metric("Total Geral", value=formatar_inteiros(geral)+" =", border=True)
 b3.metric("Contratados até Dezembro de 2025", value=formatar_inteiros(contratados)+" +", border=True)
 c3.metric("Estágio e Aprendizagem no Espaço Público", value=formatar_inteiros(estagios)+" +", border=True)
