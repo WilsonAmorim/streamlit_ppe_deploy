@@ -48,6 +48,8 @@ def obter_dados_sessao():
         st.session_state["data"] = carregar_dados_csv()
     return st.session_state["data"]
 
+
+
 def carregar_resumo_geral():
     return obter_dados_sessao()
 
@@ -61,8 +63,88 @@ def carregar_resumo_ativo():
         return df[df['Situacao'].isin(situacoes_ativas)].copy()
     return df.copy()
 
+
+
 def obter_total_ativos():
     df_ativos = carregar_resumo_ativo()
     if df_ativos.empty:
         return 0
     return int(df_ativos.shape[0]) # Retorna apenas a contagem de linhas
+
+def carregar_resumo_fesfsus_ativo():
+    df = obter_dados_sessao()
+    if df.empty:
+        return df
+    lote = "Fesfsus Lote 01"
+    situacoes_ativas = ["ATIVO", "Ativo", "FÉRIAS", "LICENÇA MATERNIDADE"]
+    if 'Situacao' in df.columns and 'ConvenioNome' in df.columns:
+        return df[df['Situacao'].isin(situacoes_ativas) & (df['ConvenioNome'] == lote)].copy()
+    return df.copy()
+
+def carregar_resumo_flem2_ativo():
+    df = obter_dados_sessao()
+    if df.empty:
+        return df
+    lote2 = "Flem Lote 02"
+    situacoes_ativas = ["ATIVO", "Ativo", "FÉRIAS", "LICENÇA MATERNIDADE"]
+    if 'Situacao' in df.columns and 'ConvenioNome' in df.columns:
+        return df[df['Situacao'].isin(situacoes_ativas) & (df['ConvenioNome'] == lote2)].copy()
+    return df.copy()
+
+def carregar_resumo_flem3_ativo():
+    df = obter_dados_sessao()
+    if df.empty:
+        return df
+    lote3 = "Flem Lote 03"
+    situacoes_ativas = ["ATIVO", "Ativo", "FÉRIAS", "LICENÇA MATERNIDADE"]
+    if 'Situacao' in df.columns and 'ConvenioNome' in df.columns:
+        return df[df['Situacao'].isin(situacoes_ativas) & (df['ConvenioNome'] == lote3)].copy()
+    return df.copy()
+
+def carregar_fesfsus_ativo():
+    df_ativos = carregar_resumo_fesfsus_ativo()
+    if df_ativos.empty:
+        return 0
+    return int(df_ativos.shape[0])
+
+def carregar_flem2_ativo():
+    df_ativos = carregar_resumo_flem2_ativo()
+    if df_ativos.empty:
+        return 0
+    return int(df_ativos.shape[0])
+
+def carregar_flem3_ativo():
+    df_ativos = carregar_resumo_flem3_ativo()
+    if df_ativos.empty:
+        return 0
+    return int(df_ativos.shape[0])
+
+def carregar_resumo_finalizados():
+    df = obter_dados_sessao()
+    if df.empty:
+        return df
+    categorias_fim = ["DESLIGADO", "Demitido", ]
+    if 'Categoria' in df.columns:
+        return df[df['Categoria'].isin(categorias_fim)].copy()
+    return df.copy()
+
+def carregar_resumo_afastados():
+    df = obter_dados_sessao()
+    if df.empty:
+        return df
+    situacoes_ativas = ["Afastado", "AFASTADO INSS"]
+    if 'Situacao' in df.columns:
+        return df[df['Situacao'].isin(situacoes_ativas)].copy()
+    return df.copy()
+
+def carregar_finalizados():
+    df_ativos = carregar_resumo_finalizados()
+    if df_ativos.empty:
+        return 0
+    return int(df_ativos.shape[0])
+
+def carregar_afastados():
+    df_ativos = carregar_resumo_afastados()
+    if df_ativos.empty:
+        return 0
+    return int(df_ativos.shape[0])
