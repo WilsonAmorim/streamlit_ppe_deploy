@@ -43,6 +43,25 @@ st.set_page_config(
     page_icon="📊"
 )
 
+# Injeção de CSS para esconder o menu, o cabeçalho e o rodapé
+st.markdown("""
+    <style>
+    /* Esconde o menu (os três pontos no canto superior direito) */
+    #MainMenu {visibility: hidden;}
+    
+    /* Esconde o cabeçalho inteiro (onde ficam os botões Share, Star, etc.) */
+    header {visibility: hidden;}
+    
+    /* Esconde o rodapé "Made with Streamlit" (opcional) */
+    footer {visibility: hidden;}
+    
+    /* Ajusta o espaçamento superior após esconder o header */
+    .block-container {
+        padding-top: 2rem;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 def formatar_moeda_br(val):
             try:
                 return f" {float(val):,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
