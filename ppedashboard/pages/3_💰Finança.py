@@ -10,30 +10,7 @@ from charts.repasses import exibir_tabelas_por_lote_csv
 # 2. Cabeçalho específico da página de Finanças
 st.set_page_config(page_title="Painel de Beneficiários", layout="wide")
 
-st.markdown("""
-    <style>
-    /* Esconde apenas os botões da direita (Share, Star, GitHub, etc.) */
-    [data-testid="stToolbar"] {
-        visibility: hidden;
-        display: none;
-    }
 
-    /* Esconde especificamente o menu de 3 pontos (MainMenu) */
-    #MainMenu {
-        visibility: hidden;
-    }
-
-    /* Opcional: Remove o espaço vazio que fica no topo */
-    header[data-testid="stHeader"] {
-        background: rgba(0,0,0,0);
-    }
-    
-    /* Garante que o botão da barra lateral continue visível e funcional */
-    [data-testid="stSidebarCollapsedControl"] {
-        visibility: visible;
-    }
-    </style>
-""", unsafe_allow_html=True)
 
 st.title("📊 Painel de Beneficiários")
 

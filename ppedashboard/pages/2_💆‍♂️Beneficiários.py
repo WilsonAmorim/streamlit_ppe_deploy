@@ -8,30 +8,7 @@ from charts.genero import mostrar_grafico_sexo_lote
 # Configuração da página para aproveitar o espaço lateral
 st.set_page_config(page_title="Painel de Beneficiários", layout="wide")
 
-st.markdown("""
-    <style>
-    /* Esconde apenas os botões da direita (Share, Star, GitHub, etc.) */
-    [data-testid="stToolbar"] {
-        visibility: hidden;
-        display: none;
-    }
 
-    /* Esconde especificamente o menu de 3 pontos (MainMenu) */
-    #MainMenu {
-        visibility: hidden;
-    }
-
-    /* Opcional: Remove o espaço vazio que fica no topo */
-    header[data-testid="stHeader"] {
-        background: rgba(0,0,0,0);
-    }
-    
-    /* Garante que o botão da barra lateral continue visível e funcional */
-    [data-testid="stSidebarCollapsedControl"] {
-        visibility: visible;
-    }
-    </style>
-""", unsafe_allow_html=True)
 
 st.title("📊 Painel de Beneficiários")
 
