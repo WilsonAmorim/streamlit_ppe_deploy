@@ -1,22 +1,30 @@
 import streamlit as st
-import pandas as pd
-# Importamos a função que você já tem no arquivo de charts
-from charts.repasses import exibir_tabelas_por_lote_csv
+import os
 
-# 1. Configuração da página (Deve ser o primeiro comando se for página única)
-# Se esta página for carregada via menu, verifique se o set_page_config já existe no main
-# st.set_page_config(page_title="Gestão de Repasses", layout="wide")
+# Título da página
+st.set_page_config(page_title="Detalhamento de Repasses", layout="wide")
+st.title("💰 Repasses")
 
-# 2. Cabeçalho específico da página de Finanças
-st.set_page_config(page_title="Painel de Beneficiários", layout="wide")
+# Função para exibir as imagens (baseada no que conversamos antes)
+def exibir_repasses_por_imagem():
+    diretorio_atual = os.path.dirname(os.path.abspath(__file__))
+    # Ajuste o caminho para onde suas imagens estão guardadas
+    pasta_imagens = os.path.join(diretorio_atual, "..", "data", "repasses")
 
+    lotes = {
+        "Lote 01 - FESFSUS - SECRETARIA DA SAÚDE": "repasse_lote01.png",
+        "Lote 02 - FLEM - SECRETARIA DA EDUCAÇÃO": "repasse_lote02.png",
+        "Lote 03 - FLEM - DEMIAS ÓRGÃOS E ENTIDADES": "repasse_lote03.png"
+    }
 
+    for nome_lote, arquivo in lotes.items():
+        caminho_imagem = os.path.join(pasta_imagens, arquivo)
+        
+        with st.expander(f"📦 {nome_lote.upper()}", expanded=(nome_lote == "Fesfsus Lote 01")):
+            if os.path.exists(caminho_imagem):
+                st.image(caminho_imagem, use_container_width=True)
+            else:
+                st.warning(f"Arquivo {arquivo} não encontrado em {pasta_imagens}")
 
-st.title("📊 Painel de Beneficiários")
-
-st.write("Acompanhamento detalhado dos repasses financeiros por lote e competência.")
-
-# 3. Chamada da função que lê o seu CSV "Repasses.csv"
-# Esta função já contém o st.expander e as métricas que configuramos
-exibir_tabelas_por_lote_csv("Repasses.csv")
-
+# Chama a função
+exibir_repasses_por_imagem()
