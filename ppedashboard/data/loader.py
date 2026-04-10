@@ -129,7 +129,7 @@ def carregar_resumo_finalizados():
     df = obter_dados_sessao()
     if df.empty:
         return df
-    categorias_fim = ["DESLIGADO", "Demitido", ]
+    categorias_fim = ["DESLIGADO", "Demitido"]
     if 'Categoria' in df.columns:
         return df[df['Categoria'].isin(categorias_fim)].copy()
     return df.copy()
@@ -208,7 +208,7 @@ def gerar_relatorio_lotes_2026_v2():
     df_ativos = df[mask_ativos_2026].groupby('ConvenioNome').size().rename("Ativos (2026)")
 
     # Desligados apenas de 2026
-    mask_desligados_2026 = (df['Situacao'].isin(situacoes_desligadas)) & (df['DataAdmissao'].dt.year == 2026)
+    mask_desligados_2026 = (df['Situacao'].isin(situacoes_desligadas))
     df_desligados = df[mask_desligados_2026].groupby('ConvenioNome').size().rename("Desligados (2026)")
 
     # Afastados SEM FILTRO DE ANO (Estoque Total)
