@@ -19,7 +19,7 @@
 # with col2:
 #     st.title("Dashboard PPE - Projeto Primeiro Emprego")
 
-# st.sidebar.markdown("SAEB/SGI/PPE")
+# st.sidebar.markdown("SAEB/DG/PPE")
 
 # st.markdown(
 #     """
