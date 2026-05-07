@@ -156,6 +156,6 @@ b4.metric("Repasse Fesfsus Lote 01", value=formatar_moeda_br(RepassesFesfsus)+" 
 c4.metric("Repasse Flem Lote 02", value=formatar_moeda_br(RepassesFlem2)+" +", border=True)
 d4.metric("Repasse Flem Lote 03 ", value=formatar_moeda_br(RepassesFlem3), border=True)
 
-st.sidebar.markdown("\n**SAEB/SGI/PPE**")
+st.sidebar.markdown("\n**SAEB/DG/PPE**")
 
 # --- CONTEÚDO DA PÁGINA PRINCIPAL ---
