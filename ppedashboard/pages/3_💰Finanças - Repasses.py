@@ -3,7 +3,10 @@ import os
 
 # Título da página
 st.set_page_config(page_title="Detalhamento de Repasses", layout="wide")
-st.title("💰 Repasses")
+
+
+st.title("💰 Painel de Repasses")
+
 
 # Função para exibir as imagens (baseada no que conversamos antes)
 def exibir_repasses_por_imagem():

@@ -1,36 +1,3 @@
-# import streamlit as st
-# from datetime import datetime
-# import pandas as pd
-
-
-
-# st.set_page_config(
-#     page_title="Dashboard PPE",
-#     layout="wide",
-#     page_icon="📊"
-# )
-# col1, col2 = st.columns([1, 5])
-
-# with col1:
-#     # Substitua 'logo.png' pelo caminho real da sua imagem (ex: 'assets/logo.png')
-#     # Use use_container_width para o logo respeitar o tamanho da coluna
-#     st.sidebar.image("imagens/logo.png", width=120)
-
-# with col2:
-#     st.title("Dashboard PPE - Projeto Primeiro Emprego")
-
-# st.sidebar.markdown("SAEB/DG/PPE")
-
-# st.markdown(
-#     """
-#     O Aplicatico de Dashboard PPE visa fornecer insights valiosos sobre os convênios
-#     firmados pelo PPE ao longo dos anos. Com uma interface interativa e visualizações
-#     dinâmicas, este dashboard permite aos usuários explorar dados detalhados sobre os
-#     convênios, facilitando a análise de tendências, desempenho e impacto dessas parcerias.
-    
-# """
-# )
-
 import streamlit as st
 from datetime import datetime
 import pandas as pd
@@ -150,7 +117,7 @@ totalRepasses = RepassesFesfsus + RepassesFlem2 + RepassesFlem3
 with a4:
     with st.container(border=True):
         st.metric("Total de Repasses", value=formatar_moeda_br(totalRepasses)+" =")
-        st.page_link("pages/3_💰Finança.py", label="Ver Detalhes", icon="➡️")
+        st.page_link("pages/3_💰Finanças - Repasses", label="Ver Detalhes", icon="➡️")
 
 b4.metric("Repasse Fesfsus Lote 01", value=formatar_moeda_br(RepassesFesfsus)+" +", border=True)
 c4.metric("Repasse Flem Lote 02", value=formatar_moeda_br(RepassesFlem2)+" +", border=True)
