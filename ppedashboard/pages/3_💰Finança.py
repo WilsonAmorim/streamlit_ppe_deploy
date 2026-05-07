@@ -12,9 +12,12 @@ def exibir_repasses_por_imagem():
     pasta_imagens = os.path.join(diretorio_atual, "..", "data", "repasses")
 
     lotes = {
+        
         "Lote 01 - FESFSUS - SECRETARIA DA SAÚDE": "repasse_lote01.png",
         "Lote 02 - FLEM - SECRETARIA DA EDUCAÇÃO": "repasse_lote02.png",
-        "Lote 03 - FLEM - DEMIAS ÓRGÃOS E ENTIDADES": "repasse_lote03.png"
+        "Lote 03 - FLEM - DEMIAS ÓRGÃOS E ENTIDADES": "repasse_lote03.png",
+        "Lote  - FLEM -Lotes 02 e 03": "repasse_lote04.png",
+        "Todo os Lotes - FESFSUS - SECRETARIA DA SAÚDE, FLEM - SECRETARIA DA EDUCAÇÃO, DEMIAS ÓRGÃOS E ENTIDADES": "repasse_lote05.png",
     }
 
     for nome_lote, arquivo in lotes.items():
