@@ -111,7 +111,7 @@ st.markdown(
     """
 )
 
-st.metric("Contratações no Período de 2016 até Fevereiro 2026",  "Beneficários", border=True)
+st.metric("Contratações no Período de 2016 até Março  2026",  "Beneficários", border=True)
 
 a, b, c, d = st.columns(4)
 
@@ -125,10 +125,10 @@ c.metric("Total Secretaria da Educação Ativos", value=formatar_inteiros(loader
 d.metric("Total Demais Órgãos e Entidades Ativos",  value=formatar_inteiros(loader.carregar_flem3_ativo()), border=True)
 
 a2, b2, c2, d2 = st.columns(4)
-contratados = loader.obter_total_ativos() + loader.carregar_finalizados() + loader.carregar_afastados()
-a2.metric("Contratados até Fevereiro de 2026", value=formatar_inteiros(contratados)+" =", border=True)
+contratados = loader.obter_total_ativos() + loader.carregar_finalizados() + loader.carregar_afastados() + 61
+a2.metric("Contratados até Março  de 2026", value=formatar_inteiros(contratados)+" =", border=True)
 b2.metric("Total Geral Ativos", value=formatar_inteiros(loader.obter_total_ativos())+" +", border=True)
-c2.metric("Contratos de Trabalho Finalizados", value=formatar_inteiros(loader.carregar_finalizados())+" +", border=True)
+c2.metric("Contratos de Trabalho Finalizados", value=formatar_inteiros(loader.carregar_finalizados() + 61)+" +", border=True)
 d2.metric("Afastados pelo INSS", value=formatar_inteiros(loader.carregar_afastados()), border=True)
 
 a3, b3, c3, d3 = st.columns(4)
@@ -136,7 +136,7 @@ estagios = 6174
 privados = 1127
 geral = contratados + estagios + privados
 a3.metric("Total Geral", value=formatar_inteiros(geral)+" =", border=True)
-b3.metric("Contratados até Fevereiro de 2026", value=formatar_inteiros(contratados)+" +", border=True)
+b3.metric("Contratados até Março  de 2026", value=formatar_inteiros(contratados)+" +", border=True)
 c3.metric("Estágio e Aprendizagem no Espaço Público", value=formatar_inteiros(estagios)+" +", border=True)
 d3.metric("Ocupação Formal, Estágio e\n Aprendizagem no Espaço Privado", value=formatar_inteiros(privados), border=True)
 
