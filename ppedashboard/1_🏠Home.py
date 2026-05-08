@@ -80,24 +80,35 @@ st.markdown(
     """
 )
 
-st.metric("Contratações no Período de 2016 até Março  2026",  "Beneficários", border=True)
+st.metric("Contratações no Período de 2016 até Abril de 2026",  "Beneficários", border=True)
 
 a, b, c, d = st.columns(4)
 
 with a:
     with st.container(border=True):
-        st.metric("Total Geral Ativos", value=formatar_inteiros(loader.obter_total_ativos())+" =")
+        # st.metric("Total Geral Ativos", value=formatar_inteiros(loader.obter_total_ativos())+" =")
+        st.metric("Total Geral Ativos", value=formatar_inteiros(3183)+" =")
         st.page_link("pages/2_💆‍♂️Beneficiários.py", label="Ver Detalhes", icon="➡️")
 
+# b.metric("Secretaria da Saúde Ativos",  value=formatar_inteiros(loader.carregar_fesfsus_ativo())+" +", border=True)
+# c.metric("Total Secretaria da Educação Ativos", value=formatar_inteiros(loader.carregar_flem2_ativo())+" +", border=True)
+# d.metric("Total Demais Órgãos e Entidades Ativos",  value=formatar_inteiros(loader.carregar_flem3_ativo()), border=True)
+
 b.metric("Secretaria da Saúde Ativos",  value=formatar_inteiros(loader.carregar_fesfsus_ativo())+" +", border=True)
-c.metric("Total Secretaria da Educação Ativos", value=formatar_inteiros(loader.carregar_flem2_ativo())+" +", border=True)
-d.metric("Total Demais Órgãos e Entidades Ativos",  value=formatar_inteiros(loader.carregar_flem3_ativo()), border=True)
+c.metric("Total Secretaria da Educação Ativos", value=formatar_inteiros(1061)+" +", border=True)
+d.metric("Total Demais Órgãos e Entidades Ativos",  value=formatar_inteiros(1118), border=True)
 
 a2, b2, c2, d2 = st.columns(4)
-contratados = loader.obter_total_ativos() + loader.carregar_finalizados() + loader.carregar_afastados() + 61
-a2.metric("Contratados até Março  de 2026", value=formatar_inteiros(contratados)+" =", border=True)
-b2.metric("Total Geral Ativos", value=formatar_inteiros(loader.obter_total_ativos())+" +", border=True)
-c2.metric("Contratos de Trabalho Finalizados", value=formatar_inteiros(loader.carregar_finalizados() + 61)+" +", border=True)
+# contratados = loader.obter_total_ativos() + loader.carregar_finalizados() + loader.carregar_afastados() + 0
+# a2.metric("Contratados até Março  de 2026", value=formatar_inteiros(contratados)+" =", border=True)
+# b2.metric("Total Geral Ativos", value=formatar_inteiros(loader.obter_total_ativos())+" +", border=True)
+# c2.metric("Contratos de Trabalho Finalizados", value=formatar_inteiros(loader.carregar_finalizados() + 0)+" +", border=True)
+# d2.metric("Afastados pelo INSS", value=formatar_inteiros(loader.carregar_afastados()), border=True)
+
+contratados = loader.carregar_finalizados() + loader.carregar_afastados() + 3184
+a2.metric("Contratados até Abril de 2026", value=formatar_inteiros(contratados)+" =", border=True)
+b2.metric("Total Geral Ativos", value=formatar_inteiros(3183)+" +", border=True)
+c2.metric("Contratos de Trabalho Finalizados", value=formatar_inteiros(loader.carregar_finalizados())+" +", border=True)
 d2.metric("Afastados pelo INSS", value=formatar_inteiros(loader.carregar_afastados()), border=True)
 
 a3, b3, c3, d3 = st.columns(4)
@@ -105,16 +116,16 @@ estagios = 6174
 privados = 1127
 geral = contratados + estagios + privados
 a3.metric("Total Geral", value=formatar_inteiros(geral)+" =", border=True)
-b3.metric("Contratados até Março  de 2026", value=formatar_inteiros(contratados)+" +", border=True)
+b3.metric("Contratados até Abril de 2026", value=formatar_inteiros(contratados)+" +", border=True)
 c3.metric("Estágio e Aprendizagem no Espaço Público", value=formatar_inteiros(estagios)+" +", border=True)
 d3.metric("Ocupação Formal, Estágio e\n Aprendizagem no Espaço Privado", value=formatar_inteiros(privados), border=True)
 
 st.metric("Repasses Financeiros por Lote e Competência",  "Repasses", border=True)
 a4, b4, c4, d4 = st.columns(4)
 
-RepassesFesfsus = 110210584.86
-RepassesFlem2 = 59279273.65
-RepassesFlem3 = 96446392.70
+RepassesFesfsus = 131374312.69
+RepassesFlem2 = 73862584.29
+RepassesFlem3 = 121848330.92
 totalRepasses = RepassesFesfsus + RepassesFlem2 + RepassesFlem3
 with a4:
     with st.container(border=True):

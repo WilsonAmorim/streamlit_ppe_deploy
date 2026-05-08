@@ -23,7 +23,7 @@ def carregar_dados_csv():
             caminho, 
             low_memory=False, 
             on_bad_lines='skip', 
-            encoding='utf-8'
+            encoding='latin-1'
         )
         
         # Limpeza de nomes de colunas
@@ -87,7 +87,7 @@ def carregar_resumo_flem2_ativo():
         return df
 
     lote2 = "Flem Lote 02"
-    situacoes_ativas = ["ATIVO", "Ativo", "FÉRIAS", "LICENÇA MATERNIDADE"]
+    situacoes_ativas = ["ATIVO", "FÉRIAS", "LICENÇA MATERNIDADE"]
 
     # No seu loader ou na função do Lote 02
     situacoes = ["ATIVO", "FÉRIAS", "LICENÇA MATERNIDADE"]
@@ -102,7 +102,7 @@ def carregar_resumo_flem3_ativo():
     if df.empty:
         return df
     lote3 = "Flem Lote 03"
-    situacoes_ativas = ["ATIVO", "Ativo", "FÉRIAS", "LICENÇA MATERNIDADE"]
+    situacoes_ativas = ["ATIVO", "FÉRIAS", "LICENÇA MATERNIDADE"]
     if 'Situacao' in df.columns and 'ConvenioNome' in df.columns:
         return df[df['Situacao'].isin(situacoes_ativas) & (df['ConvenioNome'] == lote3)].copy()
     return df.copy()
