@@ -1,3 +1,5 @@
+
+
 import streamlit as st
 from datetime import datetime
 import pandas as pd
@@ -117,7 +119,7 @@ totalRepasses = RepassesFesfsus + RepassesFlem2 + RepassesFlem3
 with a4:
     with st.container(border=True):
         st.metric("Total de Repasses", value=formatar_moeda_br(totalRepasses)+" =")
-        st.page_link("pages/3_💰Finanças - Repasses", label="Ver Detalhes", icon="➡️")
+        st.page_link("pages/3_💰Finanças_Repasses.py", label="Ver Detalhes", icon="➡️")
 
 b4.metric("Repasse Fesfsus Lote 01", value=formatar_moeda_br(RepassesFesfsus)+" +", border=True)
 c4.metric("Repasse Flem Lote 02", value=formatar_moeda_br(RepassesFlem2)+" +", border=True)
