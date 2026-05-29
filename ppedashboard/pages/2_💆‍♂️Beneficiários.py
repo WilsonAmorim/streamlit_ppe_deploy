@@ -5,16 +5,15 @@ from charts.ativos import mostrar_grafico_ativos
 from charts.lotes import mostrar_grafico_contratacoes_ano
 from charts.genero import mostrar_grafico_sexo_lote
 import os
+from pathlib import Path
 
 # Configuração da página para aproveitar o espaço lateral
 st.set_page_config(page_title="Painel de Beneficiários", layout="wide")
 
 
-diretorio_atual = os.path.dirname(os.path.abspath(__file__))   # /pages
-diretorio_raiz = os.path.dirname(diretorio_atual)              # /
-
-caminho_logo2 = os.path.join(diretorio_raiz, "imagens", "logogov.png")
-st.sidebar.image(caminho_logo2, width=400)
+ROOT = Path(__file__).resolve().parents[1]
+IMG = ROOT / "imagens" / "logogov.png"
+st.sidebar.image(IMG, width=400)
 
 st.title("📊 Painel de Beneficiários")
 
