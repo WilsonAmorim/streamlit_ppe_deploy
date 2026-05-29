@@ -4,6 +4,18 @@ import os
 # Título da página
 st.set_page_config(page_title="Detalhamento de Repasses", layout="wide")
 
+# --- CONFIGURAÇÃO DO LOGO NO TOPO DO MENU ---
+# O st.logo coloca a imagem automaticamente acima da lista de páginas
+diretorio_atual = os.path.dirname(os.path.abspath(__file__))
+caminho_logo = os.path.join(diretorio_atual, "imagens", "logo.png",)
+caminho_logo2 = os.path.join(diretorio_atual, "imagens", "logogov.png")
+
+if os.path.exists(caminho_logo):
+    st.logo(caminho_logo, icon_image=caminho_logo)
+else:
+    st.sidebar.warning("Logo não encontrado em: imagens/logo.png")
+
+st.sidebar.image(caminho_logo2, width=400)
 
 st.title("💰 Painel de Repasses")
 
