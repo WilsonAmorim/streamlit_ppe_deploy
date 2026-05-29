@@ -39,3 +39,4 @@ def exibir_repasses_por_imagem():
 
 # Chama a função
 exibir_repasses_por_imagem()
+st.sidebar.markdown("\n**SAEB/DG/PPE**")
