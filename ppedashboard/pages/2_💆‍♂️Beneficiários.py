@@ -13,13 +13,8 @@ st.set_page_config(page_title="Painel de Beneficiários", layout="wide")
 # --- CONFIGURAÇÃO DO LOGO NO TOPO DO MENU ---
 # O st.logo coloca a imagem automaticamente acima da lista de páginas
 diretorio_atual = os.path.dirname(os.path.abspath(__file__))
-caminho_logo = os.path.join(diretorio_atual, "imagens", "logo.png",)
 caminho_logo2 = os.path.join(diretorio_atual, "imagens", "logogov.png")
 
-if os.path.exists(caminho_logo):
-    st.logo(caminho_logo, icon_image=caminho_logo)
-else:
-    st.sidebar.warning("Logo não encontrado em: imagens/logo.png")
 
 st.sidebar.image(caminho_logo2, width=400)
 
@@ -47,6 +42,7 @@ if not df_geral.empty:
 df_2026 = df_geral[(df_geral['ConvenioNome'] == "Fesfsus Lote 01") & 
                    (df_geral['DataAdmissao'].dt.year == 2026)]
 
+st.sidebar.markdown("\n**SAEB/DG/PPE**")
 # st.header("📊 Relatório de Movimentação - 2026")
 # st.write("Período: Janeiro/2026 a Dezembro/2026")
 
