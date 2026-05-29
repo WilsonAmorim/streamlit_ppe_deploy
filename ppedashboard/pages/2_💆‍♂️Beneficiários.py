@@ -14,6 +14,7 @@ diretorio_atual = os.path.dirname(os.path.abspath(__file__))   # /pages
 diretorio_raiz = os.path.dirname(diretorio_atual)              # /
 
 caminho_logo2 = os.path.join(diretorio_raiz, "imagens", "logogov.png")
+st.sidebar.image(caminho_logo2, width=400)
 
 st.title("📊 Painel de Beneficiários")
 
