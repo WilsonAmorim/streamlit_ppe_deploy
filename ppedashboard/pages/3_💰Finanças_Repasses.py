@@ -26,6 +26,7 @@ def exibir_repasses_por_imagem():
         "Lote 03 - FLEM - DEMIAS ÓRGÃOS E ENTIDADES": "repasse_lote03.png",
         "Lote  - FLEM -Lotes 02 e 03": "repasse_lote04.png",
         "Todo os Lotes - FESFSUS - SECRETARIA DA SAÚDE, FLEM - SECRETARIA DA EDUCAÇÃO, DEMIAS ÓRGÃOS E ENTIDADES": "repasse_lote05.png",
+        "Investimento no Projeto Primeiro Emprego": "investimento.png"
     }
 
     for nome_lote, arquivo in lotes.items():

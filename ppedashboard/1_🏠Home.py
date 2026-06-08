@@ -105,15 +105,15 @@ a2, b2, c2, d2 = st.columns(4)
 # c2.metric("Contratos de Trabalho Finalizados", value=formatar_inteiros(loader.carregar_finalizados() + 0)+" +", border=True)
 # d2.metric("Afastados pelo INSS", value=formatar_inteiros(loader.carregar_afastados()), border=True)
 
-contratados = loader.carregar_finalizados() + loader.carregar_afastados() + 3184
+contratados = loader.carregar_finalizados() + loader.carregar_afastados() + 3183
 a2.metric("Contratados até Abril de 2026", value=formatar_inteiros(contratados)+" =", border=True)
 b2.metric("Total Geral Ativos", value=formatar_inteiros(3183)+" +", border=True)
 c2.metric("Contratos de Trabalho Finalizados", value=formatar_inteiros(loader.carregar_finalizados())+" +", border=True)
 d2.metric("Afastados pelo INSS", value=formatar_inteiros(loader.carregar_afastados()), border=True)
 
 a3, b3, c3, d3 = st.columns(4)
-estagios = 6174
-privados = 1127
+estagios = 6640
+privados = 1130
 geral = contratados + estagios + privados
 a3.metric("Total Geral", value=formatar_inteiros(geral)+" =", border=True)
 b3.metric("Contratados até Abril de 2026", value=formatar_inteiros(contratados)+" +", border=True)
