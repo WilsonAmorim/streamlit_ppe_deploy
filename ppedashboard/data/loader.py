@@ -23,7 +23,7 @@ def carregar_dados_csv():
             caminho, 
             low_memory=False, 
             on_bad_lines='skip', 
-            encoding='latin-1'
+            encoding='utf-8'
         )
         
         # Limpeza de nomes de colunas
@@ -86,25 +86,23 @@ def carregar_resumo_flem2_ativo():
     if df.empty:
         return df
 
-    lote2 = "Flem Lote 02"
-    situacoes_ativas = ["ATIVO", "FÉRIAS", "LICENÇA MATERNIDADE"]
-
-    # No seu loader ou na função do Lote 02
-    situacoes = ["ATIVO", "FÉRIAS", "LICENÇA MATERNIDADE"]
-    mask = (df['ConvenioNome'].str.strip() == 'Flem Lote 02') & \
-        (df['Situacao'].str.strip().str.upper().isin(situacoes))
-    return df[mask].copy()
+    lote = "Flem Lote 02"
+    situacoes_ativas = ["ATIVO", "Ativo", "FÉRIAS", "LICENÇA MATERNIDADE"]
     
-    # return pd.DataFrame()
-
+    if 'Situacao' in df.columns and 'ConvenioNome' in df.columns:
+        return df[df['Situacao'].isin(situacoes_ativas) & (df['ConvenioNome'] == lote)].copy()
+    return df.copy()
+    
 def carregar_resumo_flem3_ativo():
     df = obter_dados_sessao()
     if df.empty:
         return df
-    lote3 = "Flem Lote 03"
-    situacoes_ativas = ["ATIVO", "FÉRIAS", "LICENÇA MATERNIDADE"]
+        
+    lote = "Flem Lote 03"
+    situacoes_ativas = ["ATIVO", "Ativo", "FÉRIAS", "LICENÇA MATERNIDADE"]
+    
     if 'Situacao' in df.columns and 'ConvenioNome' in df.columns:
-        return df[df['Situacao'].isin(situacoes_ativas) & (df['ConvenioNome'] == lote3)].copy()
+        return df[df['Situacao'].isin(situacoes_ativas) & (df['ConvenioNome'] == lote)].copy()
     return df.copy()
 
 def carregar_fesfsus_ativo():
