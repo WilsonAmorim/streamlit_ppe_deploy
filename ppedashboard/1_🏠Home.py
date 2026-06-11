@@ -94,9 +94,7 @@ b.metric("Secretaria da Saúde Ativos",  value=formatar_inteiros(loader.carregar
 c.metric("Total Secretaria da Educação Ativos", value=formatar_inteiros(loader.carregar_flem2_ativo())+" +", border=True)
 d.metric("Total Demais Órgãos e Entidades Ativos",  value=formatar_inteiros(loader.carregar_flem3_ativo()), border=True)
 
-# b.metric("Secretaria da Saúde Ativos",  value=formatar_inteiros(loader.carregar_fesfsus_ativo())+" +", border=True)
-# c.metric("Total Secretaria da Educação Ativos", value=formatar_inteiros(1061)+" +", border=True)
-# d.metric("Total Demais Órgãos e Entidades Ativos",  value=formatar_inteiros(1118), border=True)
+
 
 a2, b2, c2, d2 = st.columns(4)
 contratados = loader.obter_total_ativos() + loader.carregar_finalizados() + loader.carregar_afastados() + 0
@@ -105,11 +103,7 @@ b2.metric("Total Geral Ativos", value=formatar_inteiros(loader.obter_total_ativo
 c2.metric("Contratos de Trabalho Finalizados", value=formatar_inteiros(loader.carregar_finalizados() + 0)+" +", border=True)
 d2.metric("Afastados pelo INSS", value=formatar_inteiros(loader.carregar_afastados()), border=True)
 
-# contratados = loader.carregar_finalizados() + loader.carregar_afastados() + 3183
-# a2.metric("Contratados até Abril de 2026", value=formatar_inteiros(contratados)+" =", border=True)
-# b2.metric("Total Geral Ativos", value=formatar_inteiros(3183)+" +", border=True)
-# c2.metric("Contratos de Trabalho Finalizados", value=formatar_inteiros(loader.carregar_finalizados())+" +", border=True)
-# d2.metric("Afastados pelo INSS", value=formatar_inteiros(loader.carregar_afastados()), border=True)
+
 
 a3, b3, c3, d3 = st.columns(4)
 estagios = 6640
